@@ -1,7 +1,7 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import lombok.val;
+import lombok.var;
+
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.IntBinaryOperator;
 
@@ -38,6 +38,15 @@ public class Main {
         names.add("Justyna");
         names.add("Oskar");
 
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Damian", "Kolaczyk", 30));
+        people.add(new Person("Weronika", "Surma", 25));
+        people.add(new Person("Kamil", "Bednarczyk", 19));
+        people.add(new Person("Filip", "Kaminski", 41));
+
+
+        Collections.sort(people);
+        System.out.println(people);
 
 //
 //        names.removeIf(oneElement -> oneElement.equals("Wojtek"));
@@ -54,13 +63,14 @@ public class Main {
 //        }
 //
 //        optional.ifPresent(s -> System.out.println(s));
+//
+//        names.stream()
+//                .filter(s -> s.length() > 3)
+//                .distinct()
+//                .sorted((s, s1) -> s.compareTo(s1) * -1)
+//                .skip(2)
+//                .forEach(s -> System.out.println(s));
 
-        names.stream()
-                .filter(s -> s.length() > 3)
-                .distinct()
-                .sorted((s, s1) -> s.compareTo(s1) * -1)
-                .skip(2)
-                .forEach(s -> System.out.println(s));
 
     }
 }
