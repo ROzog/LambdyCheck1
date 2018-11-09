@@ -4,6 +4,7 @@ import lombok.var;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.IntBinaryOperator;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,8 +46,8 @@ public class Main {
         people.add(new Person("Filip", "Kaminski", 41));
 
 
-        Collections.sort(people);
-        System.out.println(people);
+//        Collections.sort(people);
+//        System.out.println(people);
 
 //
 //        names.removeIf(oneElement -> oneElement.equals("Wojtek"));
@@ -64,13 +65,13 @@ public class Main {
 //
 //        optional.ifPresent(s -> System.out.println(s));
 //
-//        names.stream()
-//                .filter(s -> s.length() > 3)
-//                .distinct()
-//                .sorted((s, s1) -> s.compareTo(s1) * -1)
-//                .skip(2)
-//                .forEach(s -> System.out.println(s));
+        Map<Integer, List<Person>>  groupedPerson = names.stream()
+                .filter(s -> s.length() > 3)
+                .distinct()
+                .sorted()
+                .map(s -> new Person(s, s, s.length() * 2))
+                .collect(Collectors.groupingBy(s -> s.getAge()));
 
-
+        System.out.println(groupedPerson);
     }
 }

@@ -1,3 +1,5 @@
+package tasks;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
